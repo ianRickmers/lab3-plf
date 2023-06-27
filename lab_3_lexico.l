@@ -22,10 +22,8 @@ x { return X; }
 ([a-z]|[A-Z])([a-z]|[A-Z]|[0-9])* { return IDENTIFICADOR; }
 [0-9]+,[0-9]+ { return DECIMAL; }
 [0-9]+ { return ENTERO; }
-\n { return '\n'; }
+[\n\r]+ { return '\n'; }
 [ \t]+ { }
 . {return yytext[0];}
 <<EOF>> { return 0; }
 %%
-
-

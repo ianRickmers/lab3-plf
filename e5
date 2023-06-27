@@ -1,4 +1,4 @@
-FRAC(X) = (X x PI) / 2
+FRAC (X) = (X x PI) / 2
 CUR(C:D) = (C + 3^EXP(5) + 5 MOD 2) / D
 SQR(5 x Y) - Y = Y
 X = LOG(4)

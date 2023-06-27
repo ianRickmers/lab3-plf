@@ -13,7 +13,8 @@ void yyerror(char *s);
 %token IDENTIFICADOR
 %token PI
 %token '|'
-%left '\n'
+%token '\n'
+%token FIN 0 
 %left '!'
 %left '='
 %left ' ' 
@@ -30,8 +31,8 @@ input: /*vacío*/
 ;
 
 line: exp '\n'
+| exp FIN
 | '\n'
-| exp YYEOF
 ;
 
 exp: ENTERO 
