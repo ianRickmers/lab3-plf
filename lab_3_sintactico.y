@@ -12,18 +12,16 @@ void yyerror(char *s);
 %token DECIMAL
 %token IDENTIFICADOR
 %token PI
-%token '|'
-%token '\n'
-%token FIN 0 
-%left '!'
-%left '='
-%left ' ' 
+%token FIN 0
+
+%right '='
 %left '+' '-'
 %left X ':' '/' MOD
 %left NEG POS
 %right '^'
+%left '!'
 %left SQR CUR EXP LN LOG SGN INT FIX FRAC
-%token PAR
+%token '(' ')' 
 
 %%
 input: /*vacío*/
@@ -45,20 +43,20 @@ exp: ENTERO
 | exp ':' exp
 | exp '/' exp
 | exp '^' exp
-| '(' exp ')' %prec PAR
+| '(' exp ')'
 | '|' exp '|'
 | exp '!'
-| exp '=' exp
+| IDENTIFICADOR '=' exp
 | exp MOD exp
-| SQR '(' exp ')' 
-| CUR '(' exp ')' 
-| EXP '(' exp ')'
-| LN '(' exp ')' 
-| LOG '(' exp ')' 
-| SGN '(' exp ')'
-| INT '(' exp ')'
-| FIX '(' exp ')'
-| FRAC '(' exp ')'
+| SQR exp 
+| CUR exp  
+| EXP exp 
+| LN exp  
+| LOG exp  
+| SGN exp 
+| INT exp 
+| FIX exp 
+| FRAC exp 
 | PI
 | '-' exp %prec NEG
 | '+' exp %prec POS
