@@ -65,7 +65,7 @@ exp: ENTERO
 
 void yyerror(char *s)
 {
-printf("Error en la l%cnea: %d\n",161,yylineno);
+printf("Error en la l%cnea n%cmero: %d\n",161,163,yylineno);
 exit(1);
 }
 
@@ -86,7 +86,7 @@ int main(int argc, char *argv[])
         archivo_entrada = fopen(argv[1], "r");
         yyin = archivo_entrada;
         yyparse();
-        printf("An%clisis sint%cctico exitoso.\n",160,160);
+        printf("\nAn%clisis sint%cctico exitoso.\n",160,160);
         fclose(archivo_entrada);
         return 0;
     }
